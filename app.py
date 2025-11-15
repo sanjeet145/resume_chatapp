@@ -117,7 +117,8 @@ def llm_response(message:str, history)-> str:
         break
   return response.choices[0].message.content
 
-gd.ChatInterface(fn=llm_response, type='messages').launch(server_port=3000)
+gd.ChatInterface(fn=llm_response, type='messages').launch(share=True, server_port=3000)
+
 
 
 
