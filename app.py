@@ -5,6 +5,8 @@ import gradio as gd
 import json
 from pypdf import PdfReader
 load_dotenv()
+
+port = int(os.environ.get("PORT", 7860))
 MODEL_BASE_URL=os.getenv("MODEL_BASE_URL","https://api.groq.com/openai/v1")
 MODEL_API_KEY= os.getenv("MODEL_API_KEY","")
 MODEL_NAME = os.getenv("MODEL_NAME",'llama-3.3-70b-versatile')
@@ -117,7 +119,8 @@ def llm_response(message:str, history)-> str:
         break
   return response.choices[0].message.content
 
-gd.ChatInterface(fn=llm_response, type='messages').launch(share=True, server_port=3000)
+gd.ChatInterface(fn=llm_response, type='messages').launch(server_name="0.0.0.0", server_port=port,share=True)
+
 
 
 
