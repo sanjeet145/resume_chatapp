@@ -4,8 +4,8 @@ import os
 import gradio as gd
 import json
 from pypdf import PdfReader
-from tools import record_user_details_json, record_user_details
-from utilities import logging
+from .tools import record_user_details_json, record_user_details
+from .utilities import logging
 load_dotenv()
 
 port = int(os.environ.get("PORT", 7860))
@@ -76,6 +76,7 @@ def llm_response(message:str, history)-> str:
 
 gd.ChatInterface(fn=llm_response, type='messages').launch(server_name="0.0.0.0", server_port=port,share=True)
 # gd.ChatInterface(fn=llm_response, type='messages').launch(server_port=3000)
+
 
 
 
