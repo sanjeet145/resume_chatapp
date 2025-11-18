@@ -2,3 +2,5 @@ openai
 dotenv
 gradio
 pypdf
+pymongo
+requests
