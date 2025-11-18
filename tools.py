@@ -1,8 +1,8 @@
-from db import get_db
+from .db import get_db
 import os
 import time
-from utilities import logging
-from utilities import send_email
+from .utilities import logging
+from .utilities import send_email
 
 def record_user_details(email:str,name="unknown",notes="not provided"):
   logging.info(f"called tool")
@@ -48,3 +48,4 @@ record_user_details_json = {
         "additionalProperties": False
     }
 }
+
