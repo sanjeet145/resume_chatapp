@@ -1,6 +1,6 @@
 import os
 from pymongo import MongoClient
-from utilities import logging
+from .utilities import logging
 
 mongo_client = None
 db = None
@@ -23,4 +23,5 @@ def get_db():
     if mongo_client is None or not is_connected():
         logging.info("reconnecting to db")
         connect_mongo()
+
     return db
